@@ -22,7 +22,7 @@ jobs:
         install: true
         use: true
         driver-opts: |
-          image=moby/buildkit:main
+          image=moby/buildkit:buildx-stable-1
           network=host
       env:
         BUILDX_DEBUG: 1
