@@ -17,7 +17,16 @@ jobs:
 
     #Set up Docker Buildx
     - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v1  # Use the setup-buildx action 
+      uses: docker/setup-buildx-action@v1  # Use the setup-buildx action
+      with:
+        install: true
+        use: true
+        driver-opts: |
+          image=moby/buildkit:main
+          network=host
+      env:
+        BUILDX_DEBUG: 1
+      
 
     # Build and Push
     - name: Build and push Docker image
